@@ -1,0 +1,20 @@
+{
+  /* editor */
+  //"editor.folding": true,
+  //"editor.foldingStrategy": "auto",
+  //"editor.fontFamily": "HackGen",
+  "editor.matchBrackets": "always",
+  "editor.tabSize": 2,
+  "files.associations": {
+    "*.sty": "latex",
+    "*.cls": "latex",
+    "*.tex": "latex"
+  },
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": false,
+  "files.trimTrailingWhitespace": true,
+
+  "bracketPairColorizer.colorMode": "Independent"
+}
