@@ -60,5 +60,21 @@
         "%DOC%"
       ]
     }
-  ]
+  ],
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  /* chktex */
+  "latex-workshop.chktex.args.active": [
+    "-wall",
+    // "-n19", // use ' instead of ’
+    "-n21", // avoid \. or \), as . or )
+    "-n22", // comment display
+    "-n30", // multiple spaces detected in output
+    "-n40", // user regex
+    "-e16", // does math mode end?
+    "-q"
+  ],
+  "latex-workshop.chktex.enabled": true,
+  "latex-workshop.chktex.delay": 100,
+  "latex-workshop.chktex.run": "onType"
 }
