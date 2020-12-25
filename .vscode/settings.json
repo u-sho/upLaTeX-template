@@ -16,5 +16,49 @@
   "files.trimFinalNewlines": false,
   "files.trimTrailingWhitespace": true,
 
-  "bracketPairColorizer.colorMode": "Independent"
+  "bracketPairColorizer.colorMode": "Independent",
+
+  /* upLaTeX build */
+  "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.acn", "*.acr", "*.alg", "*.aux",
+    "*.bbl", "*.blg", "*.dvi", "*.fdb_latexmk",
+    "*.fls", "*.glg", "*.glo", "*.gls",
+    "*.idx", "*.ind", "*.lof", "*.log",
+    "*.lot", "*.nav", "*.out", "*.toc",
+    "*.snm", "*.synctex", "*.synctex(busy)", "*.synctex.gz",
+    "*.synctex.gz(busy)", "*.vrb"
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk 🔃",
+      "tools": [
+        "latexmk"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk 🔃",
+      "command": "latexmk",
+      "args": [
+        "-e", // upLaTeX(utf8) + synctex を使う．
+        "$latex=q/uplatex -kanji=utf8 -no-guess-input-enc -synctex=1 -interaction=nonstopmode -file-line-error %S/",
+        "-e", // upBibTeX を使う
+        "$bibtex=q/upbibtex %B/",
+        "-e", // biber を utf8 で使う
+        "$biber=q/biber --bblencoding=utf8 -u -U --output_safechars %B/",
+        "-e", // upmendex を使う
+        "$makeindex=q/upmendex -o %D %S/",
+        "-e", // dvipdfmx を使う
+        "$dvipdf=q/dvipdfmx -o %D %S/",
+        "-norc", // .lattexmkrc を使わない
+        "-gg", // PDF以外のファイルを出力しない
+        "-pdfdvi", // pdftex ではなく latex + dvipdf でコンパイルする
+        "%DOC%"
+      ]
+    }
+  ]
 }
