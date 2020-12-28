@@ -76,5 +76,13 @@
   ],
   "latex-workshop.chktex.enabled": true,
   "latex-workshop.chktex.delay": 100,
-  "latex-workshop.chktex.run": "onType"
+  "latex-workshop.chktex.run": "onType",
+
+  /* latexindent */
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false
+  }
 }
