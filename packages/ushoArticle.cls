@@ -25,10 +25,7 @@
 
 %%   load package
 \RequirePackage[%
-% top=25.04truemm,%
-% left=25.4truemm,%
-% right=25.4truemm,%
-% bottom=25.4truemm,%
+% margin=25.04truemm,%
  textwidth=49zw,%
  lines=44,%
  centering%
