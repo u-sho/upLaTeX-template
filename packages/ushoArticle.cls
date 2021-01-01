@@ -2,20 +2,22 @@
 %% ushoArticle.cls                                        %%
 %%   目次と余白                                           %%
 \NeedsTeXFormat{LaTeX2e}                                  %%
-\ProvidesClass{ushoArticle}[2020/12/10%                   %%
+\ProvidesClass{ushoArticle}[2020/12/31 v1.0%              %%
  u-sho's ToC & more settings depends on jsarticle]        %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% tocdepth の設定①
-\newcounter{tocsecdepth}
-\setcounter{tocsecdepth}{3}
+\makeatletter
+\newcounter{usho@tocdepth}
+\setcounter{usho@tocdepth}{3}
+\makeatother
 
 %% Load dependencies
 
 %%   class options
-\DeclareOption{sec}{\setcounter{tocsecdepth}{1}}
-\DeclareOption{subsec}{\setcounter{tocsecdepth}{2}}
-\DeclareOption{subsub}{\setcounter{tocsecdepth}{3}} % default
+\DeclareOption{sec}{\setcounter{usho@tocdepth}{1}}
+\DeclareOption{subsec}{\setcounter{usho@tocdepth}{2}}
+\DeclareOption{subsub}{\setcounter{usho@tocepth}{3}} % default
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{jsarticle}}
 \ProcessOptions\relax
 %%   load class
@@ -23,26 +25,22 @@
 
 %%   load package
 \RequirePackage[%
-% top=19.05truemm,%
-% left=25.4truemm,%
-% right=25.4truemm,%
-% bottom=25.4truemm,%
+% margin=25.04truemm,%
  textwidth=49zw,%
  lines=44,%
  centering%
 ]{geometry}
 
 % tocdepthの設定②
-\setcounter{tocdepth}{\value{tocsecdepth}}
+\setcounter{tocdepth}{\value{usho@tocdepth}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%% Table of Contents 〜O'REILLY風〜 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% dots
 \renewcommand{\jsTocLine}{\leaders\hbox{．}\hfill}
 
-\makeatletter
+\makeatletter % 以下 https://github.com/texjporg/jsclasses を改変
 %% sectionの目次
 \renewcommand*{\l@section}[2]{%
   \ifnum \c@tocdepth >\z@ %

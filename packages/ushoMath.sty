@@ -1,48 +1,68 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ushoMacro.sty                                           %%
-%%   よく使う数学コマンド                                  %%
-\NeedsTeXFormat{LaTeX2e}                                   %%
-\ProvidesPackage{ushoMacro}[2020/12/10 u-sho's math macro] %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ushoMath.sty                                                 %%
+%%   よく使う数学コマンド                                       %%
+\NeedsTeXFormat{LaTeX2e}                                        %%
+\ProvidesPackage{ushoMath}[2020/12/31 v1.0 u-sho's math macros] %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% AMS-LaTeX
-\RequirePackage{mathtools} % << amsmath & bugfix & commands
-\RequirePackage{amssymb}   % << amsfonts & commands
 
-% ディラックのブラケット & \set \Set
-\RequirePackage{braket}
-  \newcommand{\ketbra}[2]{\ket{#1}\mspace{-4.0mu}\bra{#2}}% \! が -3mu か -1/6zw
-  \newcommand{\Ketbra}[2]{\Ket{#1}\mspace{-6.0mu}\Bra{#2}}% \quad が 18mu か 1zw
-    \newcommand{\pure}[1]{\ketbra{#1}{#1}} % 純粋状態（インライン）
-    \newcommand{\Pure}[1]{\Ketbra{#1}{#1}} % 純粋状態（ディスプレイ）
+%% AMS-LaTeX
+\RequirePackage{mathtools}  % << amsmath & bugfix & commands
+\RequirePackage{amssymb}    % << amsfonts & commands
+
+%% Dirac's Braket
+\RequirePackage{braket}     % \Braket & \Bra & \Ket & \Set
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 以下マクロ(使う順) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ケットブラベクトル
+\newcommand{\ketbra}[2]{\ket{#1}\mspace{-4mu}\bra{#2}}  % ⎢a⟩⟨b⎥ インライン
+\newcommand{\Ketbra}[2]{\Ket{#1}\mspace{-6mu}\Bra{#2}}  % ⎢a⟩⟨b⎥ ディスプレイ
+  \newcommand{\pure}[1]{\ketbra{#1}{#1}}  % 純粋状態（インライン環境）
+  \newcommand{\Pure}[1]{\Ketbra{#1}{#1}}  % 純粋状態（ディスプレイ環境）
 
-% 括弧 \cmd* で \left \right ， \cmd[<cmd_size>] でその大きさ
-\DeclarePairedDelimiter\lrp{(}{)}             % 丸括弧(): \lrp* \lrp[<size_cmd>]
-\DeclarePairedDelimiter\lrb{\lbrace}{\rbrace} % 波括弧{}: \lrb* \lrb[<size_cmd>]
-\DeclarePairedDelimiter\lrs{\lbrack}{\rbrack} % 角括弧[]: \lrs* \lrs[<size_cmd>]
+%% 括弧
+%%   \cmd*      -> \left \right
+%%   \cmd[\big] -> \bigl \bigr
+\DeclarePairedDelimiter\lrp{(}{)}   % 丸括弧 (): \lrp* \lrp[<size_cmd>]
+\DeclarePairedDelimiter\lrb{\{}{\}} % 波括弧 {}: \lrb* \lrb[<size_cmd>]
+\DeclarePairedDelimiter\lrs{[}{]}   % 角括弧 []: \lrs* \lrs[<size_cmd>]
 
-% 論理記号
+%% 距離
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}   % 絶対値: ⎢a⎥
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}  % ノルム: ⎢⎢a⎥⎥
+
+%% 内積
+\DeclarePairedDelimiterX{\inp}[2]{\langle}{\rangle}{{#1},{#2}}  % 内積: ⟨a,b⟩
+
+% require 'unicode-math' package: work on pdflatex or lualatex.
+% \DeclarePairedDelimiterX{\hsp}[2]{⟪}{⟫}{{#1},{#2}}% Hilbert-Schmidt内積: ⟪a,b⟫
+
+%% 演算子
+\DeclareMathOperator\grad{grad}
+\DeclareMathOperator\Ker{Ker}
+\DeclareMathOperator\Tr{Tr}
+
+
+%% 論理記号（引数をとって左肩につける＆元の記号（縦長）より正方形より）
 \makeatletter
-  \newcommand{\usho@leftup}[2]{{}^{#1}\!{#2}}             % インライン環境
-    \newcommand{\exist}[1]{\usho@leftup{\exists}{#1}}     %   ∃ \exist
-    \newcommand{\all}[1]{\usho@leftup{\forall}{#1}}       %   ∀ \all
+  \newcommand{\usho@leftup}[2]{{{}^{#1}{#2}}}             % インライン環境
+    \newcommand{\exist}[1]{\usho@leftup{∃}{#1}}          %   ∃ \exist
+    \newcommand{\all}[1]{\usho@leftup{∀}{#1}}            %   ∀ \all
   \newcommand{\usho@Leftup}[2]{\vphantom{#2}^{#1}\!{#2}}  % ディスプレイ環境
-    \newcommand{\Exist}[1]{\usho@Leftup{\exists}{#1}}     %   ∃ \Exist
-    \newcommand{\All}[1]{\usho@Leftup{\forall}{#1}}       %   ∀ \All
+    \newcommand{\Exist}[1]{\usho@Leftup{∃}{#1}}          %   ∃ \Exist
+    \newcommand{\All}[1]{\usho@Leftup{∀}{#1}}            %   ∀ \All
 \makeatother
 
-% sequence
-\renewcommand\dotsc{,\,\ldots\,,\,}                        % ", ... , "
+
+%% sequence
+\renewcommand\dotsc{,\,\ldots\mspace{2mu},\mspace{1mu}}    % ", ... , "
   \newcommand{\listto}[1]{1,\,2\dotsc{#1}}                 % "1, 2, ... , n"
   \newcommand{\llistto}[2]{{#1}_1,\,{#1}_2\dotsc{#1}_{#2}} % X_1, X_2, ... , X_n
 
-% 体（黒板太字）
+
+%% 体（黒板太字）
 \newcommand{\field}[1]{\mathbb{#1}}
   \newcommand\C{\field{C}} % 複素数体
   \newcommand\Q{\field{Q}} % 有理数体
@@ -50,25 +70,10 @@
 
 % ヒルベルト空間
 \newcommand{\hilbert}[1]{\mathcal{#1}}
-  \newcommand\H{\hilbert{H}}
-  \newcommand\K{\hilbert{K}}
-  \newcommand{\L}[1]{\hilbert{L}\lrp*{#1}}
-  \newcommand\M{\hilbert{M}}
-  \newcommand\P{\hilbert{P}}
-  \newcommand\S{\hilbert{S}}
+  \renewcommand\H{\hilbert{H}}               % before: \H{a} -> ἅ
+  \renewcommand{\L}[1]{\hilbert{L}\lrp*{#1}} % before: \L    -> 斜線付L
 
-% 演算子
-\DeclareMathOperator\grad{grad}
-\DeclareMathOperator\Ker{Ker}
-\DeclareMathOperator\Tr{Tr}
-
-% 演算 \cmd* で \left \right ， \cmd[<cmd_size>] でその大きさ
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}   % 絶対値: |a|
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}  % ノルム: ||a||
-\DeclarePairedDelimiterX{\inp}[2]{\langle}{\rangle}{{#1},{#2}} % 内積: <a,b>
-\DeclarePairedDelimiterX{\hsp}[2]{⟪}{⟫}{{#1},{#2}} % Hilbert-Schmidt内積: ⟪a,b⟫
-
-% 略語
+% ...
 \newcommand\etal{\emph{et al.}~}  % et alii (and others) / alibi (elsewhere)
 \newcommand\etc{\emph{etc.}}      % et cetera (and so on)
 \newcommand\iid{\emph{i.i.d.}~}   % independently and identically distributed

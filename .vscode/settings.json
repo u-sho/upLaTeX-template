@@ -41,7 +41,7 @@
   ],
   "latex-workshop.latex.tools": [
     {
-      "name": "latexmk 🔃",
+      "name": "latexmk",
       "command": "latexmk",
       "args": [
         "-e", // upLaTeX(utf8) + synctex を使う．
@@ -54,6 +54,8 @@
         "$makeindex=q/upmendex -o %D %S/",
         "-e", // dvipdfmx を使う
         "$dvipdf=q/dvipdfmx -o %D %S/",
+        "-e", // ./packages 直下のパッケージを検索する
+        "$ENV{'TEXINPUTS'}='../packages:' . $ENV{'TEXINPUTS'}",
         "-norc", // .lattexmkrc を使わない
         "-gg", // PDF以外のファイルを出力しない
         "-pdfdvi", // pdftex ではなく latex + dvipdf でコンパイルする
@@ -71,6 +73,7 @@
     "-n22", // comment display
     "-n30", // multiple spaces detected in output
     "-n40", // user regex
+    "-n44", // \toprule, and so on
     "-e16", // does math mode end?
     "-q"
   ],
