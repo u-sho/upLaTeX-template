@@ -1,10 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ushoArticle.cls                                        %%
-%%   目次と余白                                           %%
-\NeedsTeXFormat{LaTeX2e}                                  %%
-\ProvidesClass{ushoArticle}[2020/12/31 v1.0%              %%
- u-sho's ToC & more settings depends on jsarticle]        %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% u-sho_jsarticle.cls                              %%
+%%   目次と余白                                     %%
+\NeedsTeXFormat{LaTeX2e}                            %%
+\ProvidesClass{u-sho_jsarticle}[2021/01/01 v1.0%    %%
+ jsarticle customized ToC layout & margin by u-sho] %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% tocdepth の設定①
 \makeatletter
@@ -38,7 +38,7 @@
 %%%%%%%%%%%%%%%%%%%%% Table of Contents 〜O'REILLY風〜 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% dots
-\renewcommand{\jsTocLine}{\leaders\hbox{．}\hfill}
+\renewcommand\jsTocLine{\leaders\hbox{．}\hfill}
 
 \makeatletter % 以下 https://github.com/texjporg/jsclasses を改変
 %% sectionの目次
