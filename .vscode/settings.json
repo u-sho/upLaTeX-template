@@ -81,11 +81,45 @@
   "latex-workshop.chktex.delay": 100,
   "latex-workshop.chktex.run": "onType",
 
-  /* latexindent */
+  /* latexindent: unable */
   "[latex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop",
     "editor.formatOnPaste": false,
     "editor.formatOnSave": false,
     "editor.formatOnType": false
-  }
+  },
+
+  /* spell check */
+  "cSpell.words": [
+    "amsfonts",
+    "amsthm",
+    "ascmac",
+    "bigg",
+    "bigl",
+    "bigr",
+    "braket",
+    "chktex",
+    "coloneqq",
+    "colorbox",
+    "diagbox",
+    "fancyhdr",
+    "jsbook",
+    "leftrightarrow",
+    "longleftarrow",
+    "lualatex",
+    "mapsto",
+    "mathbb",
+    "mathcal",
+    "mathsf",
+    "mathtools",
+    "normalsize",
+    "operatorname",
+    "pdflatex",
+    "rightarrow",
+    "scriptsize",
+    "tocdepth",
+    "truemm",
+    "varepsilon",
+    "wrapfig"
+  ]
 }
