@@ -1,15 +1,8 @@
 {
   "recommendations": [
-    /* highlight */
-    "coenraads.bracket-pair-colorizer",
-    "ibm.output-colorizer",
-    /* LaTeX */
-    "james-yu.latex-workshop",
-    /* cat */
-    "qzsg.kitty-time",
-    /* lint */
-    "streetsidesoftware.code-spell-checker",
-    "taichi.vscode-textlint",
+    /* LaTeX */ "james-yu.latex-workshop",
+    /* highlight */ "coenraads.bracket-pair-colorizer",
+    /* cat */ "qzsg.kitty-time"
   ],
   "unwantedRecommendations": [
     "mr-konn.catex" // snipets が邪魔
