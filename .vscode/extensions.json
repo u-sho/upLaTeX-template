@@ -5,6 +5,7 @@
     /* cat */ "qzsg.kitty-time"
   ],
   "unwantedRecommendations": [
-    "mr-konn.catex" // snipets が邪魔
+    "mr-konn.catex", // snipets が邪魔
+    "coenraads.bracket-pair-colorizer-2" // Not working
   ]
 }
