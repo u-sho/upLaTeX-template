@@ -28,7 +28,7 @@
     "*.fls", "*.glg", "*.glo", "*.gls",
     "*.idx", "*.ind", "*.lof", "*.log",
     "*.lot", "*.nav", "*.out", "*.toc",
-    "*.snm", "*.synctex", "*.synctex(busy)", "*.synctex.gz",
+    "*.snm", "*.synctex", "*.synctex(busy)", //"*.synctex.gz",
     "*.synctex.gz(busy)", "*.vrb"
   ],
   "latex-workshop.latex.recipes": [
