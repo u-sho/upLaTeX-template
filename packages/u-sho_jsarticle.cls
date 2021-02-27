@@ -2,9 +2,12 @@
 %% u-sho_jsarticle.cls                              %%
 %%   目次と余白                                     %%
 \NeedsTeXFormat{LaTeX2e}                            %%
-\ProvidesClass{u-sho_jsarticle}[2021/01/01 v1.0%    %%
+\ProvidesClass{u-sho_jsarticle}[2021/02/27 v1.1%    %%
  jsarticle customized ToC layout & margin by u-sho] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Japanese patch to some packages.  Required before load class.
+\RequirePackage{plautopatch}
 
 %% tocdepth の設定①
 \makeatletter
