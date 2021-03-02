@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% u-sho_math.sty                                                 %%
 %%   よく使う数学コマンド                                         %%
-\NeedsTeXFormat{LaTeX2e}                                          %%
-\ProvidesPackage{u-sho_math}[2021/01/01 v1.0 u-sho's math macros] %%
+\NeedsTeXFormat{pLaTeX2e}                                         %%
+\ProvidesPackage{u-sho_math}[2021/03/02 v1.1 u-sho's math macros] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -72,7 +72,7 @@
 % ヒルベルト空間
 \newcommand{\hilbert}[1]{\mathcal{#1}}
   \renewcommand\H{\hilbert{H}}               % before: \H{a} -> ἅ
-  \renewcommand{\L}[1]{\hilbert{L}\lrp*{#1}} % before: \L    -> 斜線付L
+  \renewcommand{\L}[1]{\hilbert{L}\lrp*{#1}} % before: \L    -> Ł
 
 % ...
 \newcommand\etal{\emph{et al.}~}  % et alii (and others) / alibi (elsewhere)

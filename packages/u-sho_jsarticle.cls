@@ -1,41 +1,45 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% u-sho_jsarticle.cls                              %%
 %%   目次と余白                                     %%
-\NeedsTeXFormat{LaTeX2e}                            %%
-\ProvidesClass{u-sho_jsarticle}[2021/02/27 v1.1%    %%
+\NeedsTeXFormat{pLaTeX2e}                           %%
+\ProvidesClass{u-sho_jsarticle}[2021/03/02 v1.2%    %%
  jsarticle customized ToC layout & margin by u-sho] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 % Japanese patch to some packages.  Required before load class.
 \RequirePackage{plautopatch}
 
+
+% Load Decument Class
+
 %% tocdepth の設定①
-\makeatletter
 \newcounter{usho@tocdepth}
 \setcounter{usho@tocdepth}{3}
-\makeatother
 
-%% Load dependencies
-
-%%   class options
+%% tocdepth の設定②
 \DeclareOption{sec}{\setcounter{usho@tocdepth}{1}}
 \DeclareOption{subsec}{\setcounter{usho@tocdepth}{2}}
 \DeclareOption{subsub}{\setcounter{usho@tocepth}{3}} % default
+
+%% other options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{jsarticle}}
 \ProcessOptions\relax
-%%   load class
+
+%% load class
 \LoadClass{jsarticle}
 
-%%   load package
+%% tocdepth の設定③ (final)
+\setcounter{tocdepth}{\value{usho@tocdepth}}
+
+
+% load package
 \RequirePackage[%
 % margin=25.04truemm,%
  textwidth=49zw,%
  lines=44,%
  centering%
 ]{geometry}
-
-% tocdepthの設定②
-\setcounter{tocdepth}{\value{usho@tocdepth}}
 
 
 %%%%%%%%%%%%%%%%%%%%% Table of Contents 〜O'REILLY風〜 %%%%%%%%%%%%%%%%%%%%%%%%%
