@@ -1,0 +1,68 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% u-sho_style.sty                                                %%
+%%   よく使うパッケージ群                                         %%
+\NeedsTeXFormat{pLaTeX2e}                                         %%
+\ProvidesPackage{u-sho_style}[2021/03/02 v1.2 u-sho's style file] %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Load Dependencies
+
+%%   graphics
+\RequirePackage[nosetpagesize]{graphicx} % 図表の挿入
+\RequirePackage{xcolor}                  % 色
+
+%%   AMS-LaTeX packages
+\RequirePackage{mathtools} % << amsmath & bugfix & \cmds
+\RequirePackage{amssymb}   % << amsfonts & \times & others
+
+%%   SI units
+\RequirePackage{siunitx}  % \si & {tabular}{S[table-format=+1.1e+1]}
+  \sisetup{%
+    separate-uncertainty=true,%             \SI{3.2+-0.1e-3}{mm}
+    list-final-separator={,\,\ldots\,,\,}%  \numlist{1;2;10}
+  }
+\RequirePackage{plsiunitx}
+
+%%   hyper links
+\RequirePackage[%
+  hidelinks,%                 no color
+  setpagesize=false,%         don't change page-size
+% pdftitle={my title},%       title
+% pdfauthor={u-sho},%         author
+% pdfsubject={my subject},%   subject
+  pdfkeywords={u-sho style}%  keywords
+]{hyperref}                 % toc, ref, cite, url
+\RequirePackage{pxjahyper}  % hyperref to Japanese
+
+
+%% other packages
+%%  - amsthm:   定理環境 jsthm.sty を見るとよい
+%%  - ascmac:   screen環境，shadowbox環境等の囲み
+%%  - diagbox:  表のセルに斜線を引く
+%%  - fancyhdr: ヘッダー & ページ番号
+%%  - float:    << here : [H] option (使う前に[!h]を試すとよい)
+%%  - fontenc:  [T1] option: フォントエンコード
+%%  - listings: Syntax Highlight
+%%  - minted:   ソースファイル挿入 & Syntax Highlight
+%%  - mdframed: ページを跨ぐ枠
+%%  - wrapfig:  文章中に図表の挿入
+
+
+% 図表番号
+%   式番号 \eqref \refeq は mathtools で定義されてる
+\newcommand{\fgref}[1]{\textrm{図\ref{#1}}}
+\newcommand{\reffg}[1]{\textrm{図\ref{#1}}}
+\newcommand{\reftb}[1]{\textrm{表\ref{#1}}}
+\newcommand{\tbref}[1]{\textrm{表\ref{#1}}}
+
+% デバッグ
+\newcommand{\debugR}[1]{\textcolor{red}{#1}}
+\newcommand{\debugG}[1]{\textcolor{green}{#1}}
+\newcommand{\debugB}[1]{\textcolor{blue}{#1}}
+\newcommand{\debugC}[1]{\textcolor{cyan}{#1}}
+\newcommand{\debugM}[1]{\textcolor{magenta}{#1}}
+\newcommand{\debugY}[1]{\textcolor{yellow}{#1}}
+\newcommand{\fixme}[1]{\debugR{FIXME:\ \textbf{#1}}}% 既知の不具合
+\newcommand{\todo}[1]{\debugR{TODO:\ \textbf{#1}}}  % todo
+\newcommand{\hack}[1]{\debugM{HACK:\ \textbf{#1}}}  % refactoring（差迫ってはいない）
+\newcommand{\note}[1]{\debugC{NOTE:\ \textbf{#1}}}  % コメント(whyを書く)
