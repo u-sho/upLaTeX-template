@@ -2,84 +2,83 @@
 \usepackage{u-sho_style}
 \usepackage{u-sho_math}
 
-\title{up\LaTeXe テンプレート} % chktex 1
+\title{\upLaTeXe テンプレート} % chktex 1
 \author{u-sho (上地 将平)}
-\date{\today}
+\date{\和暦\today}
 
 \begin{document}
   \maketitle
   \tableofcontents
 
+  \clearpage
+
+  \part{ho}
+    \section{目的}
+      知らんが
+
+    \section{概要}
+      参考文献~\cite{キー1}
+
+  \part{he}
+    \section{鳴き声} %chktex 19
+
+      \subsection{にゃあにゃあ}
+        なんか
+
+      \subsubsection{\texorpdfstring{\bgOrange{\tWhite{がお}}がお}{がおがお}}
+        すると
+
+      \subsection{ぴえん} % chktex 19
+
+      \subsubsection{ぱおーん}
+        \fcolorbox{red}[HTML]{888888}{\tWhite{ぱおーん}}
+        \tbref{tb:result}や\fgref{fg:paopao}を \verb|\tbref| と \verb|\fgref| コマンドで引いてみた
+
   \newpage
 
-  \section{目的}%
-    知らんが
+    \section{結果および考察}
+      \subsection{がおがお}
+        しらんけど\num{6e2}回サイコロふった．初期位相\ang{-66;5;4}だったとかなんとか
 
-  \section{概要}%
-    参考文献~\cite{キー1}
-
-  \section{鳴き声} %chktex 19
-
-    \subsection{にゃあにゃあ}
-      なんか
-
-    \subsubsection{\colorbox{orange}{\textcolor{white}{がお}}がお}
-      すると
-
-  \subsection{ぴえん} % chktex 19
-
-  \subsubsection{ぱおーん}
-    \fcolorbox{pink}[HTML]{555555}{\textcolor{white}{ぱおーん}}
-    \tbref{tb:result}や\fgref{fg:paopao}を \verb|\tbref| と \verb|\fgref| コマンドで引いてみた
-
-  \newpage
-
-  \section{結果および考察}
-    \subsection{がおがお}
-      しらんけど\num{6e2}回サイコロふった．初期位相\ang{-66;5;4}だったとかなんとか
-
-      \begin{table}[h]
-        \centering
-          \caption{サイコロを振った結果（\(N=600\)）}\label{tb:result}
-          \begin{tabular}{%
-            c|S[table-format=3.0]cS[table-format=+1.1e+1,table-figures-uncertainty=1,color=orange]%
-          }
-            \hline
-            出た目 & 回数\(n\) & 割合\(n/N\) & {\color{orange}\((n/N - 1/6)\)} \\
-            \hline
-            1      &  88       & 0.147       & -2.0+-1  e-2 \\
-            2      & 102       & 0.170       &  3  +-0.1e-3 \\
-            \cline{2-4}
-            3      &  84       & 0.140       & -2.7     e-2 \\
-            4      & 114       & 0.190       &  2.3     e-2 \\
-            5      & 109       & 0.182       &  1.5     e-2 \\
-            6      & 103       & 0.172       & \color{red}5e-3 \\
-            \hline
-          \end{tabular}
-      \end{table}
-
-    \subsection{ぱおぱお}
-      これはなんの\emph{ず}？pyo
-        \begin{figure}[!h]
+        \begin{table}[h]
           \centering
-            \includegraphics{img/350x150.png} %chktex 29
-            \caption{ろんりかいろ}\label{fg:paopao}
-        \end{figure}
-      \numlist{1;2;10}番目のわちゃわちゃ\\
-      \(1,\,2,\,\ldots\,,\,10\)あるいは\(1,\,2\dotsc 10\)．\(\llistto{Y}{m}\)は \(\llistto{X}{n}\)
-      \[
-        t
-      \]
+            \caption{サイコロを振った結果（\(N=600\)）}\label{tb:result}
+            \begin{tabular}{%
+              c|S[table-format=3.0]cS[table-format=+1.1e+1,table-figures-uncertainty=1,color=orange]%
+            }
+              \hline
+              出た目 & 回数\(n\) & 割合\(n/N\) & {\color{orange}\((n/N - 1/6)\)} \\
+              \hline
+              1      &  88       & 0.147       & -2.0+-1  e-2 \\
+              2      & 102       & 0.170       &  3  +-0.1e-3 \\
+              \cline{2-4}
+              3      &  84       & 0.140       & -2.7     e-2 \\
+              4      & 114       & 0.190       &  2.3     e-2 \\
+              5      & 109       & 0.182       &  1.5     e-2 \\
+              6      & 103       & 0.172       & \color{red}5e-3 \\
+              \hline
+            \end{tabular}
+        \end{table}
+
+      \subsection{ぱおぱお}
+        これはなんの\emph{ず}？pyo
+          \begin{figure}[!ht]
+            \centering
+              \includegraphics{img/350x150.png} %chktex 29
+              \caption{ろんりかいろ}\label{fg:paopao}
+          \end{figure}
+        \numlist{1;2;10}番目のわちゃわちゃ\\
+        \(1,\,2,\,\ldots\,,\,10\)あるいは\(1,\,2\dotsc 10\)．\(\llistto{Y}{m}\)は \(\llistto{X}{n}\)
 
   \newpage
 
-    \subsubsection{にゅ〜ぺーじ}
-      ひるべるとくうかん \(\lrp[\big]{\H,\L{\H}} \lrb[\Big]{x,y}\):
-      \[
-        \lrs*{\frac{3}{100}}\times \mathcal{X}\inp*{\frac{100}{3}}{3+i} %\hsp*{3+i}{\frac{4}{101}}
-        \Exist{ρ},\All{\rho}, \vphantom{\rho}^\forall\!\rho \bigl\langle\!\!\bigl\langle
-      \]
-      あるいは
+        \subsubsection{にゅ〜ぺーじ}
+          ひるべるとくうかん \(\lrp[\big]{\H, \L\H} \lrb[\Big]{x,y}\):
+          \[
+            \lrs*{\frac{3}{100}}\times \mathcal{X}\inp*{\frac{100}{3}}{3+i} %\hsp*{3+i}{\frac{4}{101}}
+            \Exist{ρ},\All{\rho}, \vphantom{\rho}^\forall\!\rho \bigl\langle\!\!\bigl\langle
+          \]
+          あるいは
 
   \clearpage
 

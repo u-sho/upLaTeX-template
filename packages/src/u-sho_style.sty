@@ -2,7 +2,7 @@
 %% u-sho_style.sty                                                %%
 %%   よく使うパッケージ群                                         %%
 \NeedsTeXFormat{pLaTeX2e}                                         %%
-\ProvidesPackage{u-sho_style}[2021/03/02 v1.2 u-sho's style file] %%
+\ProvidesPackage{u-sho_style}[2023/06/06 v1.3 u-sho's style file] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Load Dependencies
@@ -54,6 +54,28 @@
 \newcommand{\reffg}[1]{\textrm{図\ref{#1}}}
 \newcommand{\reftb}[1]{\textrm{表\ref{#1}}}
 \newcommand{\tbref}[1]{\textrm{表\ref{#1}}}
+
+% 文字色
+\newcommand{\tBlack}[1]{\textcolor{black}{#1}}
+\newcommand{\tWhite}[1]{\textcolor{white}{#1}}
+\newcommand{\tRed}[1]{\textcolor{red}{#1}}
+\newcommand{\tGreen}[1]{\textcolor{green}{#1}}
+\newcommand{\tBlue}[1]{\textcolor{blue}{#1}}
+\newcommand{\tCyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\tMagenta}[1]{\textcolor{magenta}{#1}}
+\newcommand{\tYellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\tOrange}[1]{\textcolor{orange}{#1}}
+
+% 背景色
+\newcommand{\bgBlack}[1]{\colorbox{black}{#1}}
+\newcommand{\bgWhite}[1]{\colorbox{white}{#1}}
+\newcommand{\bgRed}[1]{\colorbox{red}{#1}}
+\newcommand{\bgGreen}[1]{\colorbox{green}{#1}}
+\newcommand{\bgBlue}[1]{\colorbox{blue}{#1}}
+\newcommand{\bgCyan}[1]{\colorbox{cyan}{#1}}
+\newcommand{\bgMagenta}[1]{\colorbox{magenta}{#1}}
+\newcommand{\bgYellow}[1]{\colorbox{yellow}{#1}}
+\newcommand{\bgOrange}[1]{\colorbox{orange}{#1}}
 
 % デバッグ
 \newcommand{\debugR}[1]{\textcolor{red}{#1}}
