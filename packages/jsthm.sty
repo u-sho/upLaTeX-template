@@ -1,4 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}\ProvidesPackage{jsthm}[2020/12/11 Japanese Theorem Style]
+\NeedsTeXFormat{LaTeX2e}\ProvidesPackage{jsthm}[2023/07/20 Japanese Theorem Style]
 \RequirePackage{amsthm}
  \theoremstyle{definition}
  \newtheorem{definition}{定義}
@@ -6,3 +6,9 @@
  \newtheorem{theorem}{定理}
  \newtheorem{remark}{Remark}
  \renewcommand\proofname{\textbf{証明}}
+\newcommand\dfref[1]{定義\ref{#1}}
+\newcommand\refdf[1]{定義\ref{#1}}
+\newcommand\lmref[1]{補題\ref{#1}}
+\newcommand\reflm[1]{補題\ref{#1}}
+\newcommand\thref[1]{定理\ref{#1}}
+\newcommand\refth[1]{定理\ref{#1}}

@@ -1,13 +1,30 @@
-\NeedsTeXFormat{pLaTeX2e}\ProvidesPackage{u-sho_math}[2021/03/02 v1.1 u-sho's math macros]
+\NeedsTeXFormat{pLaTeX2e}\ProvidesPackage{u-sho_math}[2023/08/01 v2.2 u-sho's math macros]
 \RequirePackage{mathtools}\RequirePackage{amssymb}\RequirePackage{jsthm}
-\RequirePackage{braket}
-\newcommand{\ketbra}[2]{\ket{#1}\mspace{-4mu}\bra{#2}}\newcommand{\Ketbra}[2]{\Ket{#1}\mspace{-6mu}\Bra{#2}}\newcommand{\pure}[1]{\ketbra{#1}{#1}}\newcommand{\Pure}[1]{\Ketbra{#1}{#1}}
-\DeclarePairedDelimiter\lrp{(}{)}\DeclarePairedDelimiter\lrb{\{}{\}}\DeclarePairedDelimiter\lrs{[}{]}
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}\DeclarePairedDelimiter\norm{\lVert}{\rVert}
-\DeclarePairedDelimiterX{\inp}[2]{\langle}{\rangle}{{#1},{#2}}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}\DeclarePairedDelimiter\ket{\lvert}{\rangle}\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+\DeclarePairedDelimiterX\ketbra[2]{\lvert}{\rvert}{#1\,\delimsize\rangle\langle\,\mathopen{}#2}
+\newcommand\Bra{\bra*}\newcommand\Ket{\ket*}\newcommand\Braket{\braket*}\newcommand\Ketbra{\ketbra*}\newcommand{\pure}[1]{\ketbra{#1}{#1}}\newcommand{\Pure}[1]{\Ketbra{#1}{#1}}
+\providecommand\given{}
+\newcommand\SetSymbol[1][]{\nonscript\:#1\vert
+ \allowbreak
+ \nonscript\:
+ \mathopen{}}
+\DeclarePairedDelimiterX\set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}
+ #1
+}
+\newcommand\Set{\set*}
+\DeclarePairedDelimiter\lrp{(}{)}\DeclarePairedDelimiter\lrb{\{}{\}}\DeclarePairedDelimiter\lrs{[}{]}\newcommand\Lrp{\lrp*}
+\newcommand\Lrb{\lrb*}
+\newcommand\Lrs{\lrs*}
+\DeclarePairedDelimiter\closedInterval{\lbrack}{\rbrack}\DeclarePairedDelimiter\halfopenInterval{\lbrack}{\rparen}\DeclarePairedDelimiter\openInterval{\lparen}{\rparen}\newcommand\ClosedInterval{\closedInterval*}\newcommand\HalfOpenInterval{\halfopenInterval*}\newcommand\OpenInterval{\openInterval*}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}\newcommand\Ceil{\ceil*}
+\newcommand\Floor{\floor*}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}\DeclarePairedDelimiter\norm{\lVert}{\rVert}\newcommand\Abs{\abs*}
+\newcommand\Norm{\norm*}
+\DeclarePairedDelimiterX{\inp}[2]{\langle}{\rangle}{{#1},{#2}}\newcommand\Inp{\inp*}
 \DeclareMathOperator\grad{grad}
 \DeclareMathOperator\Ker{Ker}
 \DeclareMathOperator\Tr{Tr}
+\DeclareMathOperator*\argmin{arg\,min}\DeclareMathOperator*\argmax{arg\,max}
 \makeatletter
  \newcommand{\usho@leftup}[2]{{{}^{#1}{#2}}}\newcommand{\exist}[1]{\usho@leftup{∃}{#1}}\newcommand{\all}[1]{\usho@leftup{∀}{#1}}\newcommand{\usho@Leftup}[2]{\vphantom{#2}^{#1}\!{#2}}\newcommand{\Exist}[1]{\usho@Leftup{∃}{#1}}\newcommand{\All}[1]{\usho@Leftup{∀}{#1}}\makeatother
 \renewcommand\dotsc{,\,\ldots\mspace{2mu},\mspace{1mu}}\newcommand{\listto}[1]{1,\,2\dotsc{#1}}\newcommand{\llistto}[2]{{#1}_1,\,{#1}_2\dotsc{#1}_{#2}}

@@ -2,7 +2,7 @@
 %% u-sho_math.sty                                                 %%
 %%   よく使う数学コマンド                                         %%
 \NeedsTeXFormat{pLaTeX2e}                                         %%
-\ProvidesPackage{u-sho_math}[2021/03/02 v1.1 u-sho's math macros] %%
+\ProvidesPackage{u-sho_math}[2023/08/01 v2.2 u-sho's math macros] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -12,16 +12,35 @@
 \RequirePackage{amssymb}    % << amsfonts & commands
 \RequirePackage{jsthm}      % << amsthm & Japanese
 
+
 %% Dirac's Braket
-\RequirePackage{braket}     % \Braket & \Bra & \Ket & \Set
+\DeclarePairedDelimiter\bra{\langle}{\rvert}        % ⟨a⎥   インライン
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}        % ⎢a⟩   インライン
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}% ⟨a|b⟩ インライン
+{#1\,\delimsize\vert\,\mathopen{}#2}
+\DeclarePairedDelimiterX\ketbra[2]{\lvert}{\rvert}%  ⎢a⟩⟨b⎥ インライン
+{#1\,\delimsize\rangle\langle\,\mathopen{}#2}
 
-
-
-%% ケットブラベクトル
-\newcommand{\ketbra}[2]{\ket{#1}\mspace{-4mu}\bra{#2}}  % ⎢a⟩⟨b⎥ インライン
-\newcommand{\Ketbra}[2]{\Ket{#1}\mspace{-6mu}\Bra{#2}}  % ⎢a⟩⟨b⎥ ディスプレイ
+\newcommand\Bra{\bra*}      % ⟨a⎥ ディスプレイ
+\newcommand\Ket{\ket*}      % ⎢a⟩ ディスプレイ
+\newcommand\Braket{\braket*}% ⟨a|b⟩ ディスプレイ
+\newcommand\Ketbra{\ketbra*}% ⎢a⟩⟨b⎥ ディスプレイ
   \newcommand{\pure}[1]{\ketbra{#1}{#1}}  % 純粋状態（インライン環境）
   \newcommand{\Pure}[1]{\Ketbra{#1}{#1}}  % 純粋状態（ディスプレイ環境）
+
+%% \Set
+\providecommand\given{}
+\newcommand\SetSymbol[1][]{%
+  \nonscript\:#1\vert
+  \allowbreak
+  \nonscript\:
+  \mathopen{}}
+
+\DeclarePairedDelimiterX\set[1]\{\}{%
+  \renewcommand\given{\SetSymbol[\delimsize]}
+  #1
+}
+\newcommand\Set{\set*}
 
 %% 括弧
 %%   \cmd*      -> \left \right
@@ -29,13 +48,33 @@
 \DeclarePairedDelimiter\lrp{(}{)}   % 丸括弧 (): \lrp* \lrp[<size_cmd>]
 \DeclarePairedDelimiter\lrb{\{}{\}} % 波括弧 {}: \lrb* \lrb[<size_cmd>]
 \DeclarePairedDelimiter\lrs{[}{]}   % 角括弧 []: \lrs* \lrs[<size_cmd>]
+\newcommand\Lrp{\lrp*}
+\newcommand\Lrb{\lrb*}
+\newcommand\Lrs{\lrs*}
+
+%% 区間
+\DeclarePairedDelimiter\closedInterval{\lbrack}{\rbrack}   % 閉区間（インライン）
+\DeclarePairedDelimiter\halfopenInterval{\lbrack}{\rparen} % 半開区間（インライン）
+\DeclarePairedDelimiter\openInterval{\lparen}{\rparen}     % 開区間（インライン）
+\newcommand\ClosedInterval{\closedInterval*}     % 閉区間（ディスプレイ環境）
+\newcommand\HalfOpenInterval{\halfopenInterval*} % 半開区間（ディスプレイ環境）
+\newcommand\OpenInterval{\openInterval*}         % 開区間（ディスプレイ環境）
+
+%% 整数値関数
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}   % 天井関数
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}% 床関数
+\newcommand\Ceil{\ceil*}
+\newcommand\Floor{\floor*}
 
 %% 距離
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}   % 絶対値: ⎢a⎥
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}  % ノルム: ⎢⎢a⎥⎥
+\newcommand\Abs{\abs*}
+\newcommand\Norm{\norm*}
 
 %% 内積
 \DeclarePairedDelimiterX{\inp}[2]{\langle}{\rangle}{{#1},{#2}}  % 内積: ⟨a,b⟩
+\newcommand\Inp{\inp*} % 内積: ⟨a,b⟩
 
 % require 'unicode-math' package: work on pdflatex or lualatex.
 % \DeclarePairedDelimiterX{\hsp}[2]{⟪}{⟫}{{#1},{#2}}% Hilbert-Schmidt内積: ⟪a,b⟫
@@ -44,6 +83,9 @@
 \DeclareMathOperator\grad{grad}
 \DeclareMathOperator\Ker{Ker}
 \DeclareMathOperator\Tr{Tr}
+
+\DeclareMathOperator*\argmin{arg\,min} % arg min
+\DeclareMathOperator*\argmax{arg\,max} % arg max
 
 
 %% 論理記号（引数をとって左肩につける＆元の記号（縦長）より正方形より）
