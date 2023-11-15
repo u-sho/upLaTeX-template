@@ -1,11 +1,11 @@
 {
   "recommendations": [
     /* LaTeX */ "james-yu.latex-workshop",
-    /* highlight */ "coenraads.bracket-pair-colorizer",
     /* cat */ "qzsg.kitty-time"
   ],
   "unwantedRecommendations": [
     "mr-konn.catex", // snipets が邪魔
+    "coenraads.bracket-pair-colorizer", // deprecated
     "coenraads.bracket-pair-colorizer-2" // Not working
   ]
 }

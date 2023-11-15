@@ -16,7 +16,6 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
 
-  "bracketPairColorizer.colorMode": "Independent",
 
   /* upLaTeX build */
   "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
