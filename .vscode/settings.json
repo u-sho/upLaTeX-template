@@ -16,6 +16,14 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
 
+  /* intellisense */
+  "latex-workshop.intellisense.command.user": {
+    "label{}": "lavel{${1|eq,tb,fg,ch,sec,sub|}:$2}$0",
+    "ref{}": "lavel{${1|eq,tb,fg,ch,sec,sub|}:$2}$0"
+  },
+  "latex-workshop.intellisense.package.dirs": ["./packages"],
+  "latex-workshop.intellisense.package.enabled": true,
+
 
   /* upLaTeX build */
   "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
