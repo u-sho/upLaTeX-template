@@ -70,7 +70,18 @@
       ]
     }
   ],
+
+  /* view */
   "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.color.dark.backgroundColor": "black",
+  "latex-workshop.view.pdf.color.dark.pageBorderColor": "grey",
+  "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#333333",
+  "latex-workshop.view.pdf.color.dark.pageColorsForeground": "#eeeeee",
+  "latex-workshop.view.pdf.color.light.backgroundColor": "#f8f8f8",
+  "latex-workshop.view.pdf.color.light.pageBorderColor": "lightgrey",
+  "latex-workshop.view.pdf.color.light.pageColorsBackground": "white",
+  "latex-workshop.view.pdf.color.light.pageColorsForeground": "black",
+  "workbench.editor.closeOnFileDelete": false,
 
   /* chktex */
   "latex-workshop.chktex.args.active": [
