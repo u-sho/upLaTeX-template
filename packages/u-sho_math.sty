@@ -1,4 +1,4 @@
-\NeedsTeXFormat{pLaTeX2e}\ProvidesPackage{u-sho_math}[2023/08/01 v2.2 u-sho's math macros]
+\NeedsTeXFormat{pLaTeX2e}\ProvidesPackage{u-sho_math}[2023/12/29 v2.3 u-sho's math macros]
 \RequirePackage{mathtools}\RequirePackage{amssymb}\RequirePackage{jsthm}
 \DeclarePairedDelimiter\bra{\langle}{\rvert}\DeclarePairedDelimiter\ket{\lvert}{\rangle}\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
 \DeclarePairedDelimiterX\ketbra[2]{\lvert}{\rvert}{#1\,\delimsize\rangle\langle\,\mathopen{}#2}
@@ -25,6 +25,7 @@
 \DeclareMathOperator\Ker{Ker}
 \DeclareMathOperator\Tr{Tr}
 \DeclareMathOperator*\argmin{arg\,min}\DeclareMathOperator*\argmax{arg\,max}
+\newcommand*{\wfrac}[2]{\genfrac{}{}{}{}{\,#1\,}{\,#2\,}}\newcommand*{\twfrac}[2]{\genfrac{}{}{}{1}{\,#1\,}{\,#2\,}}\newcommand*{\dwfrac}[2]{\genfrac{}{}{}{0}{\,#1\,}{\,#2\,}}\newcommand{\pfrac}[2]{\genfrac{(}{)}{}{}{#1}{#2}}\newcommand{\bfrac}[2]{\genfrac{\{}{\}}{}{}{#1}{#2}}\newcommand{\sfrac}[2]{\genfrac{[}{]}{}{}{#1}{#2}}
 \makeatletter
  \newcommand{\usho@leftup}[2]{{{}^{#1}{#2}}}\newcommand{\exist}[1]{\usho@leftup{∃}{#1}}\newcommand{\all}[1]{\usho@leftup{∀}{#1}}\newcommand{\usho@Leftup}[2]{\vphantom{#2}^{#1}\!{#2}}\newcommand{\Exist}[1]{\usho@Leftup{∃}{#1}}\newcommand{\All}[1]{\usho@Leftup{∀}{#1}}\makeatother
 \renewcommand\dotsc{,\,\ldots\mspace{2mu},\mspace{1mu}}\newcommand{\listto}[1]{1,\,2\dotsc{#1}}\newcommand{\llistto}[2]{{#1}_1,\,{#1}_2\dotsc{#1}_{#2}}

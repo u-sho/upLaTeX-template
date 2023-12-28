@@ -2,7 +2,7 @@
 %% u-sho_math.sty                                                 %%
 %%   よく使う数学コマンド                                         %%
 \NeedsTeXFormat{pLaTeX2e}                                         %%
-\ProvidesPackage{u-sho_math}[2023/08/01 v2.2 u-sho's math macros] %%
+\ProvidesPackage{u-sho_math}[2023/12/29 v2.3 u-sho's math macros] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -86,6 +86,15 @@
 
 \DeclareMathOperator*\argmin{arg\,min} % arg min
 \DeclareMathOperator*\argmax{arg\,max} % arg max
+
+
+%% 分数
+\newcommand*{\wfrac}[2]{\genfrac{}{}{}{}{\,#1\,}{\,#2\,}} % 左右にpadding
+  \newcommand*{\twfrac}[2]{\genfrac{}{}{}{1}{\,#1\,}{\,#2\,}} % 左右にpadding（インライン）
+  \newcommand*{\dwfrac}[2]{\genfrac{}{}{}{0}{\,#1\,}{\,#2\,}} % 左右にpadding（ディスプレイ）
+\newcommand{\pfrac}[2]{\genfrac{(}{)}{}{}{#1}{#2}} % 括弧付
+\newcommand{\bfrac}[2]{\genfrac{\{}{\}}{}{}{#1}{#2}} % 括弧付
+\newcommand{\sfrac}[2]{\genfrac{[}{]}{}{}{#1}{#2}} % 括弧付
 
 
 %% 論理記号（引数をとって左肩につける＆元の記号（縦長）より正方形より）
