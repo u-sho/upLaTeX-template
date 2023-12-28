@@ -1,8 +1,8 @@
-\NeedsTeXFormat{pLaTeX2e}\ProvidesPackage{u-sho_math}[2023/12/29 v2.3 u-sho's math macros]
+\NeedsTeXFormat{pLaTeX2e}\ProvidesPackage{u-sho_math}[2023/12/29 v2.4 u-sho's math macros]
 \RequirePackage{mathtools}\RequirePackage{amssymb}\RequirePackage{jsthm}
 \DeclarePairedDelimiter\bra{\langle}{\rvert}\DeclarePairedDelimiter\ket{\lvert}{\rangle}\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
 \DeclarePairedDelimiterX\ketbra[2]{\lvert}{\rvert}{#1\,\delimsize\rangle\langle\,\mathopen{}#2}
-\newcommand\Bra{\bra*}\newcommand\Ket{\ket*}\newcommand\Braket{\braket*}\newcommand\Ketbra{\ketbra*}\newcommand{\pure}[1]{\ketbra{#1}{#1}}\newcommand{\Pure}[1]{\Ketbra{#1}{#1}}
+\providecommand\Bra{\bra*}\providecommand\Ket{\ket*}\providecommand\Braket{\braket*}\providecommand\Ketbra{\ketbra*}\providecommand{\pure}[1]{\ketbra{#1}{#1}}\providecommand{\Pure}[1]{\Ketbra{#1}{#1}}
 \providecommand\given{}
 \newcommand\SetSymbol[1][]{\nonscript\:#1\vert
  \allowbreak
@@ -11,7 +11,7 @@
 \DeclarePairedDelimiterX\set[1]\{\}{\renewcommand\given{\SetSymbol[\delimsize]}
  #1
 }
-\newcommand\Set{\set*}
+\providecommand\Set{\set*}
 \DeclarePairedDelimiter\lrp{(}{)}\DeclarePairedDelimiter\lrb{\{}{\}}\DeclarePairedDelimiter\lrs{[}{]}\newcommand\Lrp{\lrp*}
 \newcommand\Lrb{\lrb*}
 \newcommand\Lrs{\lrs*}
@@ -33,4 +33,4 @@
  \newcommand\C{\field{C}}\newcommand\Q{\field{Q}}\newcommand\R{\field{R}}
 \newcommand{\hilbert}[1]{\mathcal{#1}}
  \renewcommand\H{\hilbert{H}}\renewcommand{\L}[1]{\hilbert{L}\lrp*{#1}}
-\newcommand\etal{\emph{et al.}~}\newcommand\etc{\emph{etc.}}\newcommand\iid{\emph{i.i.d.}~}\newcommand\rv{\emph{r.v.}~}
+\newcommand\iid{i.i.d.~}\newcommand\rv{r.v.~}

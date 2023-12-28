@@ -2,7 +2,7 @@
 %% u-sho_math.sty                                                 %%
 %%   よく使う数学コマンド                                         %%
 \NeedsTeXFormat{pLaTeX2e}                                         %%
-\ProvidesPackage{u-sho_math}[2023/12/29 v2.3 u-sho's math macros] %%
+\ProvidesPackage{u-sho_math}[2023/12/29 v2.4 u-sho's math macros] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -21,12 +21,12 @@
 \DeclarePairedDelimiterX\ketbra[2]{\lvert}{\rvert}%  ⎢a⟩⟨b⎥ インライン
 {#1\,\delimsize\rangle\langle\,\mathopen{}#2}
 
-\newcommand\Bra{\bra*}      % ⟨a⎥ ディスプレイ
-\newcommand\Ket{\ket*}      % ⎢a⟩ ディスプレイ
-\newcommand\Braket{\braket*}% ⟨a|b⟩ ディスプレイ
-\newcommand\Ketbra{\ketbra*}% ⎢a⟩⟨b⎥ ディスプレイ
-  \newcommand{\pure}[1]{\ketbra{#1}{#1}}  % 純粋状態（インライン環境）
-  \newcommand{\Pure}[1]{\Ketbra{#1}{#1}}  % 純粋状態（ディスプレイ環境）
+\providecommand\Bra{\bra*}      % ⟨a⎥ ディスプレイ
+\providecommand\Ket{\ket*}      % ⎢a⟩ ディスプレイ
+\providecommand\Braket{\braket*}% ⟨a|b⟩ ディスプレイ
+\providecommand\Ketbra{\ketbra*}% ⎢a⟩⟨b⎥ ディスプレイ
+  \providecommand{\pure}[1]{\ketbra{#1}{#1}}  % 純粋状態（インライン環境）
+  \providecommand{\Pure}[1]{\Ketbra{#1}{#1}}  % 純粋状態（ディスプレイ環境）
 
 %% \Set
 \providecommand\given{}
@@ -40,7 +40,7 @@
   \renewcommand\given{\SetSymbol[\delimsize]}
   #1
 }
-\newcommand\Set{\set*}
+\providecommand\Set{\set*}
 
 %% 括弧
 %%   \cmd*      -> \left \right
@@ -126,7 +126,5 @@
   \renewcommand{\L}[1]{\hilbert{L}\lrp*{#1}} % before: \L    -> Ł
 
 % ...
-\newcommand\etal{\emph{et al.}~}  % et alii (and others) / alibi (elsewhere)
-\newcommand\etc{\emph{etc.}}      % et cetera (and so on)
-\newcommand\iid{\emph{i.i.d.}~}   % independently and identically distributed
-\newcommand\rv{\emph{r.v.}~}      % random variable
+\newcommand\iid{i.i.d.~}   % independently and identically distributed
+\newcommand\rv{r.v.~}      % random variable
