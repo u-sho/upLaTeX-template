@@ -1,6 +1,7 @@
 {
   "recommendations": [
     /* LaTeX */ "james-yu.latex-workshop",
+    /* log */ "ibm.output-colorizer",
     /* cat */ "qzsg.kitty-time"
   ],
   "unwantedRecommendations": [
