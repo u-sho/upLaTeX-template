@@ -61,30 +61,32 @@
         "$makeindex=q/upmendex -o %D %S/",
         "-e", // dvipdfmx を使う
         "$dvipdf=q/dvipdfmx -o %D %S/",
-        "-e", // ./packages 直下のパッケージを検索する
-        "$ENV{'TEXINPUTS'}='../packages:' . $ENV{'TEXINPUTS'}",
         "-norc", // .lattexmkrc を使わない
         "-gg", // PDF以外のファイルを出力しない
         "-pdfdvi", // pdftex ではなく latex + dvipdf でコンパイルする
         "%DOC%"
-      ]
+      ],
+      "env": {
+        // ./packages 直下のパッケージを検索する
+        "TEXINPUTS": "%WORKSPACE_FOLDER%/packages:"
+      }
     }
   ],
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/docs",
 
   /* view */
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.view.pdf.color.dark.backgroundColor": "black",
-  "latex-workshop.view.pdf.color.dark.pageBorderColor": "grey",
-  "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#333333",
-  "latex-workshop.view.pdf.color.dark.pageColorsForeground": "#eeeeee",
+  "latex-workshop.view.pdf.invertMode.enabled": "auto",
+  "latex-workshop.view.pdf.invert": 0.8,
+  "latex-workshop.view.pdf.invertMode.grayscale": 0,
   "latex-workshop.view.pdf.color.light.backgroundColor": "#f8f8f8",
-  "latex-workshop.view.pdf.color.light.pageBorderColor": "lightgrey",
-  "latex-workshop.view.pdf.color.light.pageColorsBackground": "white",
-  "latex-workshop.view.pdf.color.light.pageColorsForeground": "black",
   "workbench.editor.closeOnFileDelete": false,
 
   /* chktex */
-  "latex-workshop.chktex.args.active": [
+  "latex-workshop.linting.delay": 100,
+  "latex-workshop.linting.run": "onType",
+  "latex-workshop.linting.chktex.enabled": true,
+  "latex-workshop.linting.chktex.exec.args": [
     "-wall",
     // "-n19", // use ' instead of ’
     "-n21", // avoid \. or \), as . or )
@@ -95,9 +97,6 @@
     "-e16", // does math mode end?
     "-q"
   ],
-  "latex-workshop.chktex.enabled": true,
-  "latex-workshop.chktex.delay": 100,
-  "latex-workshop.chktex.run": "onType",
 
   /* latexindent: unable */
   "[latex]": {
