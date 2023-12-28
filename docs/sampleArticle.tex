@@ -40,25 +40,24 @@
       \subsection{がおがお}
         しらんけど\num{6e2}回サイコロふった．初期位相\ang{-66;5;4}だったとかなんとか
 
-        \begin{table}[h]
-          \centering
-            \caption{サイコロを振った結果（\(N=600\)）}\label{tb:result}
-            \begin{tabular}{%
-              c|S[table-format=3.0]cS[table-format=+1.1e+1,table-figures-uncertainty=1,color=orange]%
-            }
-              \hline
-              出た目 & 回数\(n\) & 割合\(n/N\) & {\color{orange}\((n/N - 1/6)\)} \\
-              \hline
-              1      &  88       & 0.147       & -2.0+-1  e-2 \\
-              2      & 102       & 0.170       &  3  +-0.1e-3 \\
-              \cline{2-4}
-              3      &  84       & 0.140       & -2.7     e-2 \\
-              4      & 114       & 0.190       &  2.3     e-2 \\
-              5      & 109       & 0.182       &  1.5     e-2 \\
-              6      & 103       & 0.172       & \color{red}5e-3 \\
-              \hline
-            \end{tabular}
-        \end{table}
+        \begin{ctable}[h]
+          \caption{サイコロを振った結果（\(N=600\)）}\label{tb:result}
+          \begin{tabular}{%
+            c|S[table-format=3.0]cS[table-format=+1.1e+1,table-figures-uncertainty=1,color=orange]%
+          }
+            \hline
+            出た目 & 回数\(n\) & 割合\(n/N\) & {\color{orange}\((n/N - 1/6)\)} \\
+            \hline
+            1      &  88       & 0.147       & -2.0+-1  e-2 \\
+            2      & 102       & 0.170       &  3  +-0.1e-3 \\
+            \cline{2-4}
+            3      &  84       & 0.140       & -2.7     e-2 \\
+            4      & 114       & 0.190       &  2.3     e-2 \\
+            5      & 109       & 0.182       &  1.5     e-2 \\
+            6      & 103       & 0.172       & \color{red}5e-3 \\
+            \hline
+          \end{tabular}
+        \end{ctable}
 
       \subsection{ぱおぱお}
         これはなんの\emph{ず}？pyo

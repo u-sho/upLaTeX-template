@@ -2,7 +2,7 @@
 %% u-sho_style.sty                                                %%
 %%   よく使うパッケージ群                                         %%
 \NeedsTeXFormat{pLaTeX2e}                                         %%
-\ProvidesPackage{u-sho_style}[2023/06/06 v1.3 u-sho's style file] %%
+\ProvidesPackage{u-sho_style}[2023/12/29 v1.4 u-sho's style file] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Load Dependencies
@@ -50,10 +50,21 @@
 
 % 図表番号
 %   式番号 \eqref \refeq は mathtools で定義されてる
-\newcommand{\fgref}[1]{\textrm{図\ref{#1}}}
-\newcommand{\reffg}[1]{\textrm{図\ref{#1}}}
-\newcommand{\reftb}[1]{\textrm{表\ref{#1}}}
-\newcommand{\tbref}[1]{\textrm{表\ref{#1}}}
+\newcommand*{\fgref}[1]{\textrm{図\ref{#1}}}
+\newcommand*{\reffg}[1]{\textrm{図\ref{#1}}}
+\newcommand*{\reftb}[1]{\textrm{表\ref{#1}}}
+\newcommand*{\tbref}[1]{\textrm{表\ref{#1}}}
+
+% 図表は中央揃え
+\newenvironment{cfigure}[1][htpb]{%
+  \begin{figure}[#1]
+    \centering
+  }{\end{figure}}
+\newenvironment{ctable}[1][htpb]{%
+  \begin{table}[#1]
+    \centering
+  }{\end{table}}
+
 
 % 文字色
 \newcommand{\tBlack}[1]{\textcolor{black}{#1}}
