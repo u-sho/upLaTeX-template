@@ -2,7 +2,7 @@
 %% u-sho_style.sty                                                %%
 %%   よく使うパッケージ群                                         %%
 \NeedsTeXFormat{pLaTeX2e}                                         %%
-\ProvidesPackage{u-sho_style}[2023/12/29 v1.4 u-sho's style file] %%
+\ProvidesPackage{u-sho_style}[2023/12/30 v2.0 u-sho's style file] %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Load Dependencies
@@ -24,11 +24,13 @@
 \RequirePackage{plsiunitx}
 
 %%   hyper links
+\RequirePackage{prettyref}  % \prettyref
 \RequirePackage[%
   hidelinks,%                 no color
   setpagesize=false,%         don't change page-size
 % pdftitle={my title},%       title
 % pdfauthor={u-sho},%         author
+  pdfusetitle,%               from \title & \author
 % pdfsubject={my subject},%   subject
   pdfkeywords={u-sho style}%  keywords
 ]{hyperref}                 % toc, ref, cite, url
@@ -48,12 +50,22 @@
 %%  - wrapfig:  文章中に図表の挿入
 
 
+% 式番号 \eqref \refeq は mathtools で定義されてる
+\newrefformat{eq}{\hyperref[#1]{式\eqref{#1}}}
+
 % 図表番号
-%   式番号 \eqref \refeq は mathtools で定義されてる
-\newcommand*{\fgref}[1]{\textrm{図\ref{#1}}}
-\newcommand*{\reffg}[1]{\textrm{図\ref{#1}}}
-\newcommand*{\reftb}[1]{\textrm{表\ref{#1}}}
-\newcommand*{\tbref}[1]{\textrm{表\ref{#1}}}
+\newrefformat{fg}{\hyperref[#1]{図\ref*{#1}}}
+\newrefformat{fig}{\hyperref[#1]{図\ref*{#1}}}
+\newrefformat{tb}{\hyperref[#1]{表\ref*{#1}}}
+\newrefformat{tab}{\hyperref[#1]{表\ref*{#1}}}
+\newrefformat{tbl}{\hyperref[#1]{表\ref*{#1}}}
+
+% 章番号
+\newrefformat{part}{\hyperref[#1]{第\ref*{#1}部}}
+\newrefformat{sec}{\hyperref[#1]{\ref*{#1}章}}
+\newrefformat{sub}{\hyperref[#1]{\ref*{#1}節}}
+\newrefformat{ft}{\hyperref[#1]{脚注\ref*{#1}}}
+
 
 % 図表は中央揃え
 \newenvironment{cfigure}[1][htpb]{%

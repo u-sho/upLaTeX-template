@@ -1,13 +1,19 @@
-\NeedsTeXFormat{pLaTeX2e}\ProvidesPackage{u-sho_style}[2023/12/29 v1.4 u-sho's style file]
+\NeedsTeXFormat{pLaTeX2e}\ProvidesPackage{u-sho_style}[2023/12/30 v2.0 u-sho's style file]
 \RequirePackage[nosetpagesize]{graphicx}\RequirePackage{xcolor}
 \RequirePackage{mathtools}\RequirePackage{amssymb}
 \RequirePackage{siunitx}\sisetup{separate-uncertainty=true, list-final-separator={,\,\ldots\,,\,}}
 \RequirePackage{plsiunitx}
-\RequirePackage[hidelinks, setpagesize=false, pdfkeywords={u-sho style}]{hyperref}\RequirePackage{pxjahyper}
-\newcommand*{\fgref}[1]{\textrm{図\ref{#1}}}
-\newcommand*{\reffg}[1]{\textrm{図\ref{#1}}}
-\newcommand*{\reftb}[1]{\textrm{表\ref{#1}}}
-\newcommand*{\tbref}[1]{\textrm{表\ref{#1}}}
+\RequirePackage{prettyref}\RequirePackage[hidelinks, setpagesize=false, pdfusetitle, pdfkeywords={u-sho style}]{hyperref}\RequirePackage{pxjahyper}
+\newrefformat{eq}{\hyperref[#1]{式\eqref{#1}}}
+\newrefformat{fg}{\hyperref[#1]{図\ref*{#1}}}
+\newrefformat{fig}{\hyperref[#1]{図\ref*{#1}}}
+\newrefformat{tb}{\hyperref[#1]{表\ref*{#1}}}
+\newrefformat{tab}{\hyperref[#1]{表\ref*{#1}}}
+\newrefformat{tbl}{\hyperref[#1]{表\ref*{#1}}}
+\newrefformat{part}{\hyperref[#1]{第\ref*{#1}部}}
+\newrefformat{sec}{\hyperref[#1]{\ref*{#1}章}}
+\newrefformat{sub}{\hyperref[#1]{\ref*{#1}節}}
+\newrefformat{ft}{\hyperref[#1]{脚注\ref*{#1}}}
 \newenvironment{cfigure}[1][htpb]{\begin{figure}[#1]
  \centering
  }{\end{figure}}
