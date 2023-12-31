@@ -1,9 +1,9 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% jsthm.sty                                                    %%
-%%   日本語定理環境                                             %%
-\NeedsTeXFormat{LaTeX2e}                                        %%
-\ProvidesPackage{jsthm}[2023/12/30 v2.0 Japanese Theorem Style] %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% jsthm.sty                                                      %%
+%%   日本語定理環境                                               %%
+\NeedsTeXFormat{LaTeX2e}                                          %%
+\ProvidesPackage{jsthm}[2023/12/31 v2.0.1 Japanese Theorem Style] %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{amsthm}
   \theoremstyle{definition}
@@ -12,7 +12,8 @@
   \newtheorem{theorem}{定理}
   \newtheorem{remark}{Remark}
   \renewcommand*\proofname{\textbf{証明}}
-  \renewcommand*\qedsymbol{∎}
+  \renewcommand*\qedsymbol{\(\blacksquare\)}
+  \renewcommand*\qed{\unskip\nobreak\quad\qedsymbol}
 
 \makeatletter
 \@ifpackageloaded{hyperref}{%

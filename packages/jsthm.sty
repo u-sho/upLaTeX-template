@@ -1,4 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}\ProvidesPackage{jsthm}[2023/12/30 v2.0 Japanese Theorem Style]
+\NeedsTeXFormat{LaTeX2e}\ProvidesPackage{jsthm}[2023/12/31 v2.0.1 Japanese Theorem Style]
 \RequirePackage{amsthm}
  \theoremstyle{definition}
  \newtheorem{definition}{定義}
@@ -6,7 +6,8 @@
  \newtheorem{theorem}{定理}
  \newtheorem{remark}{Remark}
  \renewcommand*\proofname{\textbf{証明}}
- \renewcommand*\qedsymbol{∎}
+ \renewcommand*\qedsymbol{\(\blacksquare\)}
+ \renewcommand*\qed{\unskip\nobreak\quad\qedsymbol}
 \makeatletter
 \@ifpackageloaded{hyperref}{\newcommand*\definitionautorefname{定義}
  \newcommand*\lemmaautorefname{補題}
