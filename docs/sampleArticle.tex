@@ -1,10 +1,18 @@
 \documentclass[uplatex,dvipdfmx]{u-sho_jsarticle}
 \usepackage{u-sho_style}
 \usepackage{u-sho_math}
+\hypersetup{
+  pdfinfo={
+    CreationDate={D:20201231210407+09'00'},
+    ModDate={\pdffilemoddate{\jobname}},
+    Subject={upLaTeX template with u-sho's packages},
+    Keywords={upLaTeX template;u-sho jsarticle;u-sho math;u-sho style}
+  }
+}
 
 \title{\upLaTeXe テンプレート} % chktex 1
 \author{u-sho (上地 将平)}
-\date{\和暦\today}
+\date{作成：令和2年12月31日\hspace{2zw}更新：\和暦\today}%chktex 19
 
 \begin{document}
   \maketitle
@@ -32,7 +40,7 @@
 
       \subsubsection{ぱおーん}
         \fcolorbox{red}[HTML]{888888}{\tWhite{ぱおーん}}
-        \prettyref{tb:result}や\prettyref{fg:paopao}，\prettyref{eq:newpage}を \verb|\prettyref| コマンドで引いてみた
+        \prettyref{th:center}や\prettyref{tb:result}，\prettyref{fg:paopao}，\prettyref{eq:newpage}を \verb|\prettyref| コマンドで引いてみた
 
   \newpage
 
@@ -78,6 +86,15 @@
             \Exist{ρ},\All{\rho}, \vphantom{\rho}^\forall\!\rho \bigl\langle\!\!\bigl\langle
           \end{equation}
           あるいは
+          \begin{theorem}[中間値の定理]\label{th:center}
+            閉区間\(\closedInterval{a,b}\subset\R\)について連続な関数\(f:\R\to\R\)を考える．
+            \(f\lrp{a}\leq f\lrp{b}\)であるとき，
+            \(\openInterval{f\lrp{a},f\lrp{b}}\)上の任意の\(k\in\R\)に対して，
+            \(f\lrp{c}=k\)なる\(c\in\openInterval{a,b}\)が存在し，
+            \(f\lrp{a}>f\lrp{b}\)であるとき，
+            \(\openInterval{f\lrp{b},f\lrp{a}}\)上の任意の\(k\in\R\)に対して，
+            \(f\lrp{c}=k\)なる\(c\in\openInterval{b,a}\)が存在する．
+          \end{theorem}
 
   \clearpage
 
