@@ -15,8 +15,8 @@
   \vspace{30truemm}
 }
 \author{
-  \large{電気通信大学 情報理工学域}\\
-  \large{Ⅱ類 電子情報学プログラム}
+  \large{電気通信大学 大学院情報理工学研究科}\\
+  \large{情報・ネットワーク工学専攻}
   \\[10truemm]
   u-sho（上地 将平）
   \\[20truemm]
@@ -52,7 +52,7 @@
       \subsection{ぱおーん}
 
         \fcolorbox{pink}[HTML]{555555}{\tWhite{ぱおーん}}
-        \tbref{tb:result}や\fgref{fg:paopao}を \verb|\tbref| と \verb|\fgref| コマンドで引いてみた
+        \prettyref{th:center}や\prettyref{tb:result}，\prettyref{fg:paopao}，\prettyref{eq:newpage}を \verb|\prettyref| コマンドで引いてみた
 
   \newpage
 
@@ -101,12 +101,24 @@
 
       \subsection{にゅ〜ぺーじ}
 
-        ひるべるとくうかん \(\lrp[\big]{\H,\L{\H}} \lrb[\Big]{x,y}\):
-        \[
+        ひるべるとくうかん \(\lrp[\big]{\H,\L\H} \lrb[\Big]{x,y}\):
+        \begin{equation}\label{eq:newpage}
           \sfrac{3}{100}\times \mathcal{X}\inp*{\wfrac{100}{3}}{3+i} %\hsp*{3+i}{\frac{4}{101}}
           \Exist{ρ},\All{\rho}, \vphantom{\rho}^\forall\!\rho \bigl\langle\!\!\bigl\langle
-        \]
+        \end{equation}
         あるいは
+        \begin{theorem}[中間値の定理]\label{th:center}
+          閉区間\(\closedInterval{a,b}\subset\R\)について連続な関数\(f:\R\to\R\)を考える．
+          \(f\lrp{a}\leq f\lrp{b}\)であるとき，
+          \(\openInterval{f\lrp{a},f\lrp{b}}\)上の任意の\(k\in\R\)に対して，
+          \(f\lrp{c}=k\)なる\(c\in\openInterval{a,b}\)が存在し，
+          \(f\lrp{a}>f\lrp{b}\)であるとき，
+          \(\openInterval{f\lrp{b},f\lrp{a}}\)上の任意の\(k\in\R\)に対して，
+          \(f\lrp{c}=k\)なる\(c\in\openInterval{b,a}\)が存在する．
+        \end{theorem}
+        \begin{proof}
+          明らか．
+        \end{proof}
 
   \clearpage
 
