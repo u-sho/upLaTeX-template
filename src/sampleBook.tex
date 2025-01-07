@@ -6,13 +6,21 @@
 ]{geometry}
 \usepackage{u-sho_style}
 \usepackage{u-sho_math}
+\hypersetup{
+  pdfinfo={
+    CreationDate={D:20210101124246+09'00'},
+    ModDate={\pdffilemoddate{\jobname}},
+    Subject={upLaTeX template with u-sho's packages},
+    Keywords={upLaTeX template;jsbook;u-sho math;u-sho style}
+  }
+}
 
 \title{
   {\normalsize up\LaTeXe テンプレート}% chktex 1
   \\[10truemm]
   jsbookクラスを用いた\\
   ushoStyleパッケージの見本
-  \vspace{30truemm}
+  \texorpdfstring{\vspace*{30truemm}}{}
 }
 \author{
   \large{電気通信大学 大学院情報理工学研究科}\\
@@ -23,14 +31,14 @@
   参考資料
   \\[5truemm]
   特になし
-  \vspace{20truemm}
+  \texorpdfstring{\vspace*{20truemm}}{}
 }
-\date{作成日: \和暦\today}
+\date{作成日：令和3年1月1日\\最終更新日：\和暦\today}%chktex 19
 
 \begin{document}
-  \pagenumbering{roman}
   \maketitle
-  \tableofcontents
+
+  \pagenumbering{roman}\tableofcontents
 
   \chapter{目的}%
   \pagenumbering{arabic}

@@ -52,15 +52,19 @@
       "command": "latexmk",
       "args": [
         "-e", // upLaTeX(utf8) + synctex を使う．
-        "$latex=q/uplatex -kanji=utf8 -no-guess-input-enc -synctex=1 -interaction=nonstopmode -file-line-error %S/",
+        "$latex=q/uplatex -kanji=utf8 -no-guess-input-enc -synctex=1 %O %S/",
         "-e", // upBibTeX を使う
-        "$bibtex=q/upbibtex %B/",
+        "$bibtex=q/upbibtex %O %B/",
         "-e", // biber を utf8 で使う
-        "$biber=q/biber --bblencoding=utf8 -u -U --output_safechars %B/",
+        "$biber=q/biber --bblencoding=utf8 -u -U --output_safechars %O %B/",
         "-e", // upmendex を使う
-        "$makeindex=q/upmendex -o %D %S/",
+        "$makeindex=q/upmendex %O -o %D %S/",
         "-e", // dvipdfmx を使う
-        "$dvipdf=q/dvipdfmx -o %D %S/",
+        "$dvipdf=q/dvipdfmx %O -o %D %S/",
+        "-outdir=%OUTDIR%", // latex.outDir に出力
+        "-interaction=nonstopmode",
+        "-file-line-error", // エラーの行数を表示
+        "-halt-on-error", // エラーが出たらすぐとめる．listings系はバグるかも
         "-norc", // .lattexmkrc を使わない
         "-gg", // PDF以外のファイルを出力しない
         "-pdfdvi", // pdftex ではなく latex + dvipdf でコンパイルする
